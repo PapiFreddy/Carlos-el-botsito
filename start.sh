@@ -1,1 +1,1 @@
-pipenv run python carlos-el-botsito/bot.py
+pipenv run python bot.py
