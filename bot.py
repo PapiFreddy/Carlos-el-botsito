@@ -50,8 +50,8 @@ async def event_message(ctx):
 
     # await ctx.channel.send(ctx.content)
 
-    if 'hola' in ctx.content.lower():
-        await ctx.channel.send(f"Hola, @{ctx.author.name} bienvenido al MEJOR STREAM 2020 espero te la pases bien!!!")
+    #if 'hola' in ctx.content.lower():
+        #await ctx.channel.send(f"Hola, @{ctx.author.name} bienvenido al MEJOR STREAM 2020 espero te la pases bien!!!")
 
     if 'chakaflus' in ctx.content.lower():
         await ctx.channel.send("chakaflus")
@@ -62,9 +62,15 @@ async def event_message(ctx):
     if 'discord' in ctx.content.lower() and 'sigue a nuestro npc favorito en todas sus redes sociales' not in ctx.content.lower():
         await ctx.channel.send("Unete al discord mas cool, discord.gg/TWuEDzT ")
     
-    if '?' in ctx.content.lower() and 'youtube.com' not in ctx.content.lower():
-        await ctx.channel.send("Contrata a mario")
-
+    #if '?' in ctx.content.lower() and 'youtube.com' not in ctx.content.lower():
+        #await ctx.channel.send("Contrata a mario")
+        
+    if 'ip' in ctx.content.lower():
+        await ctx.channel.send("la IP es 51.161.84.224:25717  y la version es la 1.5.2")
+        
+    if 'source' in ctx.content.lower():
+        await ctx.channel.send("quien dijo source?, pues aqui esta el mio https://github.com/scidroid/carlos-el-botsito")
+          
     if ctx.content.lower() == "1":
         uno += 1
 
@@ -84,10 +90,6 @@ async def event_message(ctx):
 @bot.command(name="frase")
 async def Frase(ctx):
     await ctx.channel.send(random.choice('Te quiero mucho', 'La teoria de la gravedad de Einstein', 'Yo no soy senior, ni mid, ni junior yo soy ingeniero', '¿Todo bien en casa?', 'Mis mods son simps', 'Coño *Inserte persona del chat*') + ' -Freddy 2020.')
-
-@bot.command(name='Source')
-async def Source(ctx):
-    await ctx.channel.send('Mira como funciono por dentro, https://github.com/scidroid/carlos-el-botsito')
 
 
 @bot.command(name="resultados")
