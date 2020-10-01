@@ -3,17 +3,7 @@ from twitchio.ext import commands
 import random
 import time
 
-uno = 0
 
-dos = 0
-
-tres = 0
-
-#lol
-
-cuatro = 0
-
-cinco = 0
 
 participantes = []
 
@@ -41,26 +31,6 @@ async def event_message(ctx):
   #Contribución de @PythonBoy123
   await bot.handle_commands(ctx)
 
-    # await ctx.channel.send(ctx.content)
-
-    #if 'hola' in ctx.content.lower():
-        #await ctx.channel.send(f"Hola, @{ctx.author.name} bienvenido al MEJOR STREAM 2020 espero te la pases bien!!!")
-      #hOLA AA TODOS COMO ESTRAN000
-
-  #if 'chakaflus' in ctx.content.lower():
-        #await ctx.channel.send("chakaflus")
-
-  #if 'juan-carlos' in ctx.content.lower():
-        #await ctx.channel.send("La mejor combinacion 2020")
-
-  #if 'discord' in ctx.content.lower() and 'sigue a nuestro npc favorito en todas sus redes sociales' not in ctx.content.lower():
-        #await ctx.channel.send("Unete al discord mas cool, discord.gg/TWuEDzT ")
-    
-    #if '?' in ctx.content.lower() and 'youtube.com' not in ctx.content.lower():
-        #await ctx.channel.send("Contrata a mario")
-        
-  #if ' ip' in ctx.content.lower() or 'ip' == ctx.content.lower():
-        #await ctx.channel.send("la IP es 51.161.84.224:25717  y la version es la 1.7.2")
         
   if '!source' in ctx.content.lower():
         await ctx.channel.send("quien dijo source?, pues aqui esta el mio carlos.scidroid.live")
@@ -87,23 +57,138 @@ async def event_message(ctx):
 async def Frase(ctx):
     await ctx.channel.send(random.choice('Te quiero mucho', 'La teoria de la gravedad de Einstein', 'Yo no soy senior, ni mid, ni junior yo soy ingeniero', '¿Todo bien en casa?', 'Mis mods son simps', 'Coño *Inserte persona del chat*') + ' -Freddy 2020.')
 
-
-@bot.command(name="resultados")
-async def resultados(ctx):
-    if ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz": 
-      await ctx.channel.send(f"1 tiene {uno} votos, 2 tiene {dos} votos, 3 tiene {tres} votos, 4 tiene {cuatro} votos, 5 tiene {cinco} votos.")
-
-
-
-@bot.command(name="reset")
-async def resetvots(ctx):
-  if ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
-    global uno,dos,tres,cuatro,cinco,participantes
+@bot.command(name="votar")
+async def poll(ctx):
+  numero_maximo = ctx.content
+  if numero_maximo == "2" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    uno = 0
+    dos = 0
+    ctx.channel.send("Todos voten poniendo en el chat 1 o 2.")
+  elif numero_maximo == "3" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    uno = 0
+    dos = 0
+    tres = 0
+    ctx.channel.send("Todos voten poniendo en el chat 1, 2 o 3.")
+  elif numero_maximo == "4" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    uno = 0
+    dos = 0
+    tres = 0
+    cuatro = 0
+    ctx.channel.send("Todos voten poniendo en el chat 1, 2, 3 y 4.")
+  elif numero_maximo == "5" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
     uno = 0
     dos = 0
     tres = 0
     cuatro = 0
     cinco = 0
+    ctx.channel.send("Todos voten poniendo en el chat 1, 2, 3, 4 o 5.")
+  else:
+    if ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+      uno = 0
+      dos = 0
+      ctx.channel.send("Todos voten poniendo en el chat 1 o 2.")
+    
+    
+@bot.command(name="resultados")
+async def resultados(ctx):
+  global numero_maximo
+  if numero_maximo == "2" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    total = uno + dos
+    calculo_porcentaje = total / 100
+    if dos > uno:
+      ganador = 2
+      porcentaje = calculo_porcentaje * dos
+      empate = "no"
+    elif uno > dos:
+      ganador = 1
+      porcentaje = calculo_porcentaje * uno
+      empate = "no"
+    elif uno == dos:
+      empate = "si"
+    
+    if empate == "no": 
+      ctx.channel.send(f"Gano la opcion {ganador} con el {porcentaje}% de los votos con un total de {total} votos.")
+    elif empate == "si":
+      ctx.channel.send(f"Hay un empate, con un total de {total} votos")
+      
+  elif numero_maximo == "3" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    total = uno + dos + tres
+    calculo_porcentaje = total / 100
+    if dos > uno and dos > tres:
+      ganador = 2
+      porcentaje = calculo_porcentaje * dos
+      empate = "no"
+    elif uno > dos and uno > tres:
+      ganador = 1
+      porcentaje = calculo_porcentaje * uno
+      empate = "no"
+    elif tres > dos and tres > uno:
+      ganador = 3
+      porcentaje = calculo_porcentaje * tres
+      empate = "no"
+    elif uno == dos and uno == tres:
+      empate = "si"
+    
+    if empate == "no": 
+      ctx.channel.send(f"Gano la opcion {ganador} con el {porcentaje}% de los votos con un total de {total} votos.")
+    elif empate == "si":
+      ctx.channel.send(f"Hay un empate, con un total de {total} votos")
+  
+  elif numero_maximo == "4" and ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    total = uno + dos + tres + cuatro
+    calculo_porcentaje = total / 100
+    if dos > uno and dos > tres and dos > cuatro:
+      ganador = 2
+      porcentaje = calculo_porcentaje * dos
+      empate = "no"
+    elif uno > dos and uno > tres and uno > cuatro:
+      ganador = 1
+      porcentaje = calculo_porcentaje * uno
+      empate = "no"
+    elif tres > dos and tres > uno and tres > cuatro:
+      ganador = 3
+      porcentaje = calculo_porcentaje * tres
+      empate = "no"
+    elif cuatro > dos and cuatro > uno and cuatro > tres:
+      ganador = 3
+      porcentaje = calculo_porcentaje * tres
+      empate = "no"
+    elif uno == dos and uno == tres and tres == cuatro:
+      empate = "si"
+    
+    if empate == "no": 
+      ctx.channel.send(f"Gano la opcion {ganador} con el {porcentaje}% de los votos con un total de {total} votos.")
+    elif empate == "si":
+      ctx.channel.send(f"Hay un empate, con un total de {total} votos")
+  else:
+    if ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+      total = uno + dos
+      calculo_porcentaje = total / 100
+      if dos > uno:
+        ganador = 2
+        porcentaje = calculo_porcentaje * dos
+        empate = "no"
+      elif uno > dos:
+        ganador = 1
+        porcentaje = calculo_porcentaje * uno
+        empate = "no"
+      elif uno == dos and uno == tres and tes == cuatro:
+        empate = "si"
+      
+      if empate == "no": 
+        ctx.channel.send(f"Gano la opcion {ganador} con el {porcentaje}% de los votos con un total de {total} votos.")
+      elif empate == "si":
+        ctx.channel.send(f"Hay un empate, con un total de {total} votos")
+
+@bot.command(name="reset")
+async def resetvots(ctx):
+  if ctx.author.name.lower() is "freddyfalso" or "scidroid" or "dinosaurio_rar" or "ezequielift" or "pythonlist" or "darkatzzzz" or "emiilrodriguezz":
+    global uno,dos,tres,cuatro,cinco,participantes
+    del uno
+    del dos
+    del tres
+    del cuatro
+    del cinco
     participantes = []
 
 
