@@ -1,6 +1,8 @@
 # Carlos-el-botsito
 ![Lenguaje](https://img.shields.io/badge/Python-3.8-yellow?style=plastic&logo=python)
-Este es un Bot de Twitch Open Source basado en la utilidad TwitchIO de Python, esta hecha para el canal de Twitch de [@FreddyFalso](https://twitch.tv/freddyfalso).
+[![DeepSource](https://deepsource.io/gh/scidroid/Carlos-el-botsito.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/scidroid/Carlos-el-botsito/?ref=repository-badge)
+
+#### Este es un Bot de Twitch Open Source basado en la utilidad TwitchIO de Python, esta hecha para el canal de Twitch de [@FreddyFalso](https://twitch.tv/freddyfalso).
 
 
 ## Guía de configuración.
