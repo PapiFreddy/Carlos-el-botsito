@@ -1,7 +1,5 @@
 import os
 from twitchio.ext import commands
-import random
-import time
 import urllib.request
 import json
 
