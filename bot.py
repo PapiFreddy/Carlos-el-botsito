@@ -20,7 +20,7 @@ async def llegada():
     'El Bot ha sido llamado'
     print(f"{os.environ['BOT_NICK']} llego al chat!")
     ws = bot._ws
-    await ws.send_privmsg(os.environ['SCI'], f"/me llego al chat!")
+    await ws.send_privmsg(os.environ['SCI'], "/me llego al chat!")
 
 
 # declaramos para que el bot ea los mensajes
